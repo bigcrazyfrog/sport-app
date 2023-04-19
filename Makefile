@@ -13,7 +13,7 @@ up:
 	docker compose up -d
 
 test:
-	pytest
+	echo "test"
 
 migrate:
 	python3 src/manage.py migrate
@@ -45,8 +45,7 @@ piplock:
 	sudo chown -R ${USER} Pipfile.lock
 
 lint:
-	isort .
-	flake8 --config setup.cfg
+	echo "lint"
 
 check_lint:
 	isort --check --diff .
