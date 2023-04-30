@@ -20,6 +20,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
+# env settings
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False),
+    ALLOWED_HOSTS=(str, '127.0.0.1 .localhost'),
+)
+
+env.read_env(env.str('ENV_PATH', '.env'))
+
+DEBUG = env('DEBUG')
+ALLOWED_HOSTS = env('ALLOWED_HOSTS').split()
+SECRET_KEY = env('SECRET_KEY')
+HOST = env('HOST')
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -117,16 +132,4 @@ STATIC_ROOT = BASE_DIR / "static"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "app.AdminUser"
 
-# env settings
-
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False),
-    ALLOWED_HOSTS=(str, '127.0.0.1 .localhost'),
-)
-
-env.read_env(env.str('ENV_PATH', '.env'))
-
-DEBUG = env('DEBUG')
-ALLOWED_HOSTS = env('ALLOWED_HOSTS').split()
-SECRET_KEY = env('SECRET_KEY')
+CSRF_TRUSTED_ORIGINS = [f'https://{HOST}']

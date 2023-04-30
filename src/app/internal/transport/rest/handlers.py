@@ -4,7 +4,10 @@ from ninja import NinjaAPI
 from app.internal.services.allergen_service import AllergenService
 from app.internal.services.product_service import ProductService
 
-api = NinjaAPI()
+api = NinjaAPI(
+    title="SPORT.BACKEND",
+    version="1.0.2"
+)
 
 
 @api.get("/status")
@@ -12,21 +15,21 @@ def status(request):
     return {"status": "OK"}
 
 
-@api.get("/product")
-def product(request):
+@api.get("/products")
+def products(request):
     return JsonResponse(ProductService.get_all(), json_dumps_params={'ensure_ascii': False})
 
 
-@api.get("/product/{id}")
-def product(request, id: int):
+@api.get("/products/{id}")
+def products(request, id: int):
     return JsonResponse(ProductService.get_by_id(id), json_dumps_params={'ensure_ascii': False})
 
 
-@api.get("/allergen")
-def allergen(request):
+@api.get("/allergens")
+def allergens(request):
     return JsonResponse(AllergenService.get_all(), json_dumps_params={'ensure_ascii': False})
 
 
-@api.get("/allergen/{id}")
-def allergen(request, id: int):
+@api.get("/allergens/{id}")
+def allergens(request, id: int):
     return JsonResponse(AllergenService.get_by_id(id), json_dumps_params={'ensure_ascii': False})
