@@ -50,4 +50,3 @@ deploy:
     - main 
   environment:
     name: prod
-
