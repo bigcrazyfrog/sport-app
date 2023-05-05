@@ -40,7 +40,6 @@ class Product(models.Model):
         to='Allergen',
         verbose_name='Allergen list',
         symmetrical=False,
-        null=True,
     )
 
     def __str__(self):
