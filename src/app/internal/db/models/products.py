@@ -8,7 +8,7 @@ class Product(models.Model):
     )
     name = models.CharField(
         verbose_name='Name',
-        max_length=32,
+        max_length=255,
     )
     kilocalories = models.PositiveIntegerField(
         verbose_name='Kilocalories',
@@ -40,6 +40,7 @@ class Product(models.Model):
         to='Allergen',
         verbose_name='Allergen list',
         symmetrical=False,
+        blank=True,
     )
 
     def __str__(self):

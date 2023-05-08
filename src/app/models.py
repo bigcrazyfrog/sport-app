@@ -1,4 +1,4 @@
-from app.internal.models.admin_user import AdminUser
-from app.internal.models.allergens import Allergen
-from app.internal.models.products import Product
-from app.internal.models.imenu import Gluten, Lactose, Lectins
+from app.internal.db.models.admin_user import AdminUser
+from app.internal.db.models.allergens import Allergen
+from app.internal.db.models.products import Product
+from app.internal.db.models.menu import Menu, Recommendation
