@@ -29,26 +29,33 @@ class Recommendation(models.Model):
     day = models.PositiveIntegerField(
         verbose_name='day',
     )
-    breakfast = models.ForeignKey(
-        'Product',
+    breakfast = models.ManyToManyField(
+        to='Product',
         related_name='breakfast',
-        on_delete=models.CASCADE,
+        blank=True,
+        symmetrical=False,
     )
-    lunch = models.ForeignKey(
-        'Product',
+    lunch = models.ManyToManyField(
+        to='Product',
         related_name='lunch',
-        on_delete=models.CASCADE,
+        blank=True,
+        symmetrical=False,
     )
-    dinner = models.ForeignKey(
-        'Product',
+    dinner = models.ManyToManyField(
+        to='Product',
         related_name='dinner',
-        on_delete=models.CASCADE,
+        blank=True,
+        symmetrical=False,
     )
 
     kalo_sum = models.PositiveIntegerField(default=0)
 
     def _get_kalo_sum(self):
-        return self.breakfast.kilocalories + self.lunch.kilocalories + self.dinner.kilocalories
+        s = sum(self.breakfast.all().values_list("kilocalories", flat=True))
+        s += sum(self.lunch.all().values_list("kilocalories", flat=True))
+        s += sum(self.dinner.all().values_list("kilocalories", flat=True))
+
+        return s
 
     def save(self, *args, **kwargs):
         self.kalo_sum = self._get_kalo_sum()
