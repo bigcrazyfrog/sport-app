@@ -57,8 +57,12 @@ class Recommendation(models.Model):
 
         return s
 
-    def save(self, *args, **kwargs):
+    def _set_kalo_sum(self):
         self.kalo_sum = self._get_kalo_sum()
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        self._set_kalo_sum()
         super().save(*args, **kwargs)
 
     def __str__(self):
