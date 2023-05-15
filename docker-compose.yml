@@ -2,26 +2,26 @@ version: "3.9"
 
 services:
 
-  postgres:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    volumes:
-      - data:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
+#  postgres:
+#    image: postgres
+#    restart: always
+#    environment:
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: postgres
+#    volumes:
+#      - data:/var/lib/postgresql/data
+#    ports:
+#      - 5432:5432
 
   web:
     container_name: web
     image: ${IMAGE_NAME}
     build: ./src
     volumes:
-      - ./src/mounted:/opt/file
+      - db_data:/opt/file
     ports:
       - "8090:8090"
     command: python ./src/manage.py runserver 0.0.0.0:8090
 
 volumes:
-  data:
+  db_data:
