@@ -32,20 +32,19 @@ class RecommendationRepository(IRecommendationRepository):
 
         while difference - rec.kalo_sum > 50:
             if rec_filter.allergens is None:
-                product = Product.objects.filter(kilocalories__lt=100).order_by("?").first()
+                product = Product.objects.filter(kilocalories__lt=70).order_by("?").first()
             else:
-                product = Product.objects.filter(kilocalories__lt=100) \
+                product = Product.objects.filter(kilocalories__lt=70) \
                     .exclude(allergens__id__in=rec_filter.allergens).order_by("?").first()
 
-            rec.kalo_sum += product.kilocalories
+            rec.kalo_sum += product.kilocalories * product.proportion
             rec.snack.append(ProductOut.from_orm(product))
 
     def get_recommendation_on_day(self, rec_filter: RecommendationFilter) -> RecommendationOnDay:
         menu = self._get_menu_model(allergen_list=rec_filter.allergens)
-
         recommendation = Recommendation.objects.filter(menu=menu).order_by("?").first()
-        rec = RecommendationOnDay.from_orm(recommendation)
 
+        rec = RecommendationOnDay.from_orm(recommendation)
         self._fill_snack(rec=rec, rec_filter=rec_filter)
 
         return rec

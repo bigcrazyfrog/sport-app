@@ -12,3 +12,4 @@ class ProductOut(Schema):
     fats: float
     carb: float
     allergens: list[AllergenOut] = None
+    proportion: float

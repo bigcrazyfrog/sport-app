@@ -42,6 +42,13 @@ class Product(models.Model):
         symmetrical=False,
         blank=True,
     )
+    proportion = models.DecimalField(
+        verbose_name='proportion',
+        max_digits=8,
+        decimal_places=1,
+        null=False,
+        default=1,
+    )
 
     def __str__(self):
         return self.name

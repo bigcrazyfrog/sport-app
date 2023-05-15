@@ -51,9 +51,13 @@ class Recommendation(models.Model):
     kalo_sum = models.PositiveIntegerField(default=0)
 
     def _get_kalo_sum(self):
-        s = sum(self.breakfast.all().values_list("kilocalories", flat=True))
-        s += sum(self.lunch.all().values_list("kilocalories", flat=True))
-        s += sum(self.dinner.all().values_list("kilocalories", flat=True))
+        s = 0
+        for product in self.breakfast.all():
+            s += product.kilocalories * product.proportion
+        for product in self.lunch.all():
+            s += product.kilocalories * product.proportion
+        for product in self.breakfast.all():
+            s += product.kilocalories * product.proportion
 
         return s
 
