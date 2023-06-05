@@ -1,17 +1,15 @@
 version: "3.9"
 
 services:
-
-#  postgres:
-#    image: postgres
-#    restart: always
-#    environment:
-#      POSTGRES_USER: postgres
-#      POSTGRES_PASSWORD: postgres
-#    volumes:
-#      - data:/var/lib/postgresql/data
-#    ports:
-#      - 5432:5432
+  db:
+    container_name: pg_db
+    image: postgres:13.3
+    env_file:
+      - .env
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
 
   web:
     container_name: web
@@ -20,7 +18,7 @@ services:
     volumes:
       - db_data:/opt/file
     ports:
-      - "8090:8090"
+      - "${PORT}:${PORT}"
     command: python ./src/manage.py runserver 0.0.0.0:8090
 
 volumes:
