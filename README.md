@@ -34,4 +34,4 @@ make up
 [djangoninja]: <https://django-ninja.rest-framework.com/>
 [postgres]: <https://www.postgresql.org>
 [cleanarchitecture]: <https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html>
-[db] <https://storage.yandexcloud.net/nikita.backend/photo_5413330553601641861_y.jpg>
+[db]: <https://storage.yandexcloud.net/nikita.backend/photo_5413330553601641861_y.jpg>
