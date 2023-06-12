@@ -1,20 +1,20 @@
 from ninja import NinjaAPI
 
-from app.internal.db.repositories.allergen_repo import AllergenRepository
-from app.internal.db.repositories.menu_repo import MenuRepository
-from app.internal.db.repositories.product_repo import ProductRepository
-from app.internal.db.repositories.recommendation_repo import RecommendationRepository
-from app.internal.domain.entities.entities import NotFoundException
-from app.internal.domain.services.allergen_service import AllergenService
-from app.internal.domain.services.menu_services import MenuService
-from app.internal.domain.services.product_service import ProductService
-from app.internal.domain.services.recomendation_services import RecommendationService
-from app.internal.presentation.handlers.allergen_handlers import AllergenHandlers
-from app.internal.presentation.handlers.menu_handlers import MenuHandlers
-from app.internal.presentation.handlers.product_handlers import ProductHandlers
-from app.internal.presentation.routers.allergen_routers import add_allergens_router
-from app.internal.presentation.routers.menu_routers import add_menus_router
-from app.internal.presentation.routers.product_routers import add_products_router
+from app.internal.allergens.db.repositories import AllergenRepository
+from app.internal.allergens.domain.services import AllergenService
+from app.internal.allergens.presentation.handlers import AllergenHandlers
+from app.internal.allergens.presentation.routers import add_allergens_router
+from app.internal.exceptions.default import NotFoundException
+from app.internal.menus.db.repositories import MenuRepository
+from app.internal.menus.domain.services import MenuService
+from app.internal.menus.presentation.handlers import MenuHandlers
+from app.internal.menus.presentation.routers import add_menus_router
+from app.internal.products.db.repositories import ProductRepository
+from app.internal.products.domain.services import ProductService
+from app.internal.products.presentation.handlers import ProductHandlers
+from app.internal.products.presentation.routers import add_products_router
+from app.internal.recommendations.db.repositories import RecommendationRepository
+from app.internal.recommendations.domain.services import RecommendationService
 
 
 def get_api():
