@@ -1,10 +1,11 @@
 from typing import Optional, List
 
 from app.internal.allergens.domain.entities import AllergenFilters
-from app.internal.menus.db.models import Menu, Recommendation
+from app.internal.menus.db.models import Menu
 from app.internal.menus.domain.entities import MenuOut
 from app.internal.products.db.models import Product
 from app.internal.products.domain.entities import ProductOut
+from app.internal.recommendations.db.models import Recommendation
 from app.internal.recommendations.domain.entities import RecommendationOnDay, RecommendationFilter
 from app.internal.recommendations.domain.services import IRecommendationRepository
 
