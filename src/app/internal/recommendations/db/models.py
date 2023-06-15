@@ -55,3 +55,7 @@ class Recommendation(models.Model):
     class Meta:
         verbose_name = 'Recommendation'
         verbose_name_plural = 'Recommendations'
+
+        indexes = [
+            models.Index(fields=['menu', 'day']),
+        ]
