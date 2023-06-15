@@ -1,10 +1,10 @@
 from typing import List
 
-from ninja.params import Path
 from ninja import Query
+from ninja.params import Path
 
 from app.internal.allergens.domain.entities import AllergenFilters
-from app.internal.menus.domain.entities import MenuOut, MenuContentOut
+from app.internal.menus.domain.entities import MenuContentOut, MenuOut
 from app.internal.menus.domain.services import MenuService
 from app.internal.recommendations.domain.entities import RecommendationFilter, RecommendationOnDay
 from app.internal.recommendations.domain.services import RecommendationService

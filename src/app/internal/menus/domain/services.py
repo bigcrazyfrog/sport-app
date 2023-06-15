@@ -1,6 +1,6 @@
 from typing import List
 
-from app.internal.menus.domain.entities import MenuOut, MenuContentOut
+from app.internal.menus.domain.entities import MenuContentOut, MenuOut
 
 
 class IMenuRepository:

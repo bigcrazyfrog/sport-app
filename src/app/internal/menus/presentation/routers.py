@@ -2,7 +2,7 @@ from typing import List
 
 from ninja import NinjaAPI, Router
 
-from app.internal.menus.domain.entities import MenuOut, MenuContentOut
+from app.internal.menus.domain.entities import MenuContentOut, MenuOut
 from app.internal.menus.presentation.handlers import MenuHandlers
 from app.internal.recommendations.domain.entities import RecommendationOnDay
 from app.internal.responses.default import ErrorResponse, NotFoundResponse

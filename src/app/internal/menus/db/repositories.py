@@ -1,8 +1,8 @@
-from typing import Optional, List
+from typing import List, Optional
 
 from app.internal.exceptions.default import NotFoundException
 from app.internal.menus.db.models import Menu
-from app.internal.menus.domain.entities import MenuOut, MenuContentOut
+from app.internal.menus.domain.entities import MenuContentOut, MenuOut
 from app.internal.menus.domain.services import IMenuRepository
 from app.internal.recommendations.db.models import Recommendation
 

@@ -1,4 +1,4 @@
-from typing import Optional, List
+from typing import List, Optional
 
 from app.internal.allergens.db.models import Allergen
 from app.internal.allergens.domain.entities import AllergenOut

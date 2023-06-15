@@ -1,4 +1,4 @@
-from typing import Optional, List
+from typing import List, Optional
 
 from app.internal.exceptions.default import NotFoundException
 from app.internal.products.db.models import Product
