@@ -45,7 +45,8 @@ piplock:
 	sudo chown -R ${USER} Pipfile.lock
 
 lint:
-	echo "lint"
+	isort .
+	flake8 --config setup.cfg
 
 check_lint:
 	isort --check --diff .
