@@ -21,6 +21,8 @@ git clone https://gitlab.com/bigcrazyfrog/sport.git
 
 If you don't use gitlab-runner for some personal reasons:
 
+Create `.env` file from `.env.example`.
+
 Create docker images and execute the containers for development. Use make:
 ```
 make build
