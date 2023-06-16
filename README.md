@@ -16,7 +16,7 @@ Code structure implementation follows a [Clean Architecture][cleanarchitecture] 
 
 Download source code cloning this repository:
 ```
-git clone https://gitlab.com/bigcrazyfrog/sport.git
+git clone https://github.com/bigcrazyfrog/sport-app.git
 ```
 
 ## Run the API backend:
