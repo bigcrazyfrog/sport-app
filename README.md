@@ -2,8 +2,6 @@
 
 This repository contains the code for Sport API backend.
 
-https://nikita.backend23.2tapp.cc/sport/api/docs
-
 ---
 
 ## Documentation
@@ -20,8 +18,6 @@ git clone https://github.com/bigcrazyfrog/sport-app.git
 ```
 
 ## Run the API backend:
-
-If you don't use gitlab-runner for some personal reasons:
 
 Create `.env` file from `.env.example`.
 
